@@ -11,6 +11,11 @@ public class ParkingLotMain {
         this.initialisationService = new InitialisationService();
     }
 
+    /***
+     *
+     * @param args
+     *
+     */
     public static void main(String[] args) {
         ParkingLotMain parkingLotMain = new ParkingLotMain();
         ParkingLot parkingLot = parkingLotMain.initialisationService.initialise();

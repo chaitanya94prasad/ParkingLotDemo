@@ -24,6 +24,10 @@ public class InitialisationService {
         this.parkingSpotRepository = new ParkingSpotRepository();
     }
 
+    /***
+     *
+     * @return ParkingLot object
+     */
     public ParkingLot initialise() {
         Operator entryOperator = new Operator();
         entryOperator.setEmailId("emailIDX");
@@ -54,14 +58,17 @@ public class InitialisationService {
         exitGate.setFloorNumber(0);
         exitGate.setStatus(Status.ACTIVE);
 
-        gateRepository.put(entryGate);
-        gateRepository.put(exitGate);
-
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.setId(1);
         parkingLot.setStatus(Status.ACTIVE);
         parkingLot.setAddress("ADDR");
         parkingLot.setCapacity(100);
+
+        entryGate.setParkingLotId(parkingLot.getId());
+        exitGate.setParkingLotId(parkingLot.getId());
+
+        gateRepository.put(entryGate);
+        gateRepository.put(exitGate);
 
         parkingLot.setGates(List.of(exitGate,entryGate));
 
