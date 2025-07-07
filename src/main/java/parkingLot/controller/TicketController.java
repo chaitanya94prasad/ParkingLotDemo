@@ -29,6 +29,8 @@ public class TicketController {
                     issueTicketRequestDTO.getVehicleColour(),
                     issueTicketRequestDTO.getVehicleMake(),
                     issueTicketRequestDTO.getGateID());
+            issueTicketResponseDTO.setResponseStatus(ResponseStatus.SUCCESS);
+            issueTicketResponseDTO.setTicket(ticket);
         }catch (Exception e) {
             issueTicketResponseDTO.setResponseStatus(ResponseStatus.FAILURE);
             issueTicketResponseDTO.setFailureReason(e.getMessage());
